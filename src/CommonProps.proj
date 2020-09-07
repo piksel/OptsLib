@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+      <Version>1.0.0</Version>
+      <Authors>nils måsén</Authors>
+      <Company>piksel bitworks</Company>
+      <Product>LibSettings</Product>
+      <LangVersion>8.0</LangVersion>
+      <Nullable>Enable</Nullable>
+    <PackageOutputPath>$(SolutionDir)/dist/</PackageOutputPath>
+  </PropertyGroup>
+</Project>

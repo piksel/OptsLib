@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="examples/SettingsEditor.Avalonia/App.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="examples/SettingsEditor.Avalonia/MainWindow.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="examples/SettingsEditor.WPF/App.xaml" value="examples/SettingsEditor.WPF/SettingsEditor.WPF.csproj" />
+        <entry key="examples/SettingsEditor.WPF/MainWindow.xaml" value="examples/SettingsEditor.WPF/SettingsEditor.WPF.csproj" />
+        <entry key="src/OptsLib.Avalonia/Editors/DecimalOptionEditor.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="src/OptsLib.Avalonia/Editors/EnumOptionEditor.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="src/OptsLib.Avalonia/Editors/PathOptionEditor.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="src/OptsLib.Avalonia/Editors/PointOptionEditor.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="src/OptsLib.Avalonia/Editors/TextOptionEditor.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="src/OptsLib.Avalonia/Editors/ToggleOptionEditor.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="src/OptsLib.Avalonia/SettingsEditor.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
+        <entry key="src/OptsLib.WPF/Editors/TextSettingEditor.xaml" value="examples/SettingsEditor.WPF/SettingsEditor.WPF.csproj" />
+        <entry key="src/OptsLib.WPF/SettingsEditor.xaml" value="examples/SettingsEditor.WPF/SettingsEditor.WPF.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

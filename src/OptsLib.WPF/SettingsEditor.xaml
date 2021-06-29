@@ -1,0 +1,154 @@
+﻿<UserControl x:Class="OptsLib.WPF.SettingsEditor"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OptsLib.WPF" xmlns:ed="clr-namespace:OptsLib.WPF.Editors"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+
+        <DataTemplate x:Key="textSettingTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="NameCol" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="32" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Name}"  Grid.Column="0" Padding="4,0,6,0" />
+                <TextBox Grid.Column="1" />
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center"><Run Text="✔"/></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Description}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="pathSettingTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="NameCol" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="32" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Name}"  Grid.Column="0" Padding="4,0,6,0" />
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Margin="0,0,4,0" />
+                    <Button Grid.Column="1" Content="Browse..."/>
+                </Grid>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center"><Run Text="✔"/></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Description}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="rangeSettingTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="NameCol" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="32" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Name}"  Grid.Column="0" Padding="4,0,6,0" />
+                <Grid Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Slider Grid.Column="0"/>
+                    <TextBox Grid.Column="1" />
+                </Grid>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center"><Run Text="✔"/></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Description}" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="toggleSettingTemplate">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="NameCol" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="32" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <CheckBox Grid.ColumnSpan="2">
+                    <TextBlock Text="{Binding Name}" />
+                </CheckBox>
+                <TextBlock Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center"><Run Text="✔"/></TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Text="{Binding Description}" Visibility="{Binding HasDescription, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <Grid Background="BlanchedAlmond">
+        <ListView Grid.Row="0" Name="Options" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border Padding="2">
+                                    <ContentPresenter />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ItemTemplateSelector>
+                <ed:SettingEditorTemplateSelector />
+            </ListView.ItemTemplateSelector>
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" Grid.IsSharedSizeScope="True" />
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+          <!--
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name"/>
+                    <GridViewColumn Header="Editor"/>
+                    <GridViewColumn Header="State"/>
+                </GridView>
+            </ListView.View>
+            -->
+            <!--
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <TextBlock Text="Name: " />
+                        <TextBlock Text="{Binding Key}" FontWeight="Bold" />
+                        <TextBlock Text=", " />
+                        <TextBlock Text="Age: " />
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" />
+                        <TextBlock Text=" (" />
+                        <TextBlock Text="{Binding Description}" TextDecorations="Underline" Foreground="Blue" Cursor="Hand" />
+                        <TextBlock Text=")" />
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+                -->
+        </ListView>
+    </Grid>
+</UserControl>

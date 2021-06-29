@@ -1,0 +1,113 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:util="clr-namespace:OptsLib.Examples.AvaloniaOptsEditor.Util"
+        xmlns:opts="clr-namespace:OptsLib.Avalonia;assembly=OptsLib.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="OptsLib.Examples.AvaloniaOptsEditor.MainWindow"
+        Name="MainWindow"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaChromeHints="PreferSystemChrome"
+        ExtendClientAreaToDecorationsHint="True"
+        SystemDecorations="None"
+        Width="800"
+        Height="600"
+        MinHeight="200"
+        MinWidth="300"
+        Title="Options Editor Avalonia Example">
+    <DockPanel>
+        <Border DockPanel.Dock="Top" 
+                Background="#1B0F46"
+                MinHeight="30"
+                IsHitTestVisible="False" 
+                Height="{Binding #MainWindow.WindowDecorationMargin.Top}">
+            <TextBlock 
+                FontSize="12"
+                Text="{Binding #MainWindow.Title}" VerticalAlignment="Center" Margin="8, 0" />
+        </Border>
+        <ExperimentalAcrylicBorder>
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial MaterialOpacity=".85" TintColor="Black" TintOpacity="1" />
+            </ExperimentalAcrylicBorder.Material>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition MinHeight="100"  />
+                    <RowDefinition Height="2" />
+                    <RowDefinition MinHeight="100" Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition MinWidth="150" Width="200" />
+                    <ColumnDefinition Width="2" />
+                    <ColumnDefinition MinWidth="100" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Row="0" Grid.Column="0" RowDefinitions="*,38" ColumnDefinitions="*, *" 
+                      MinWidth="150"
+                      HorizontalAlignment="Stretch"
+                >
+                    <ListBox Name="Sections" 
+                             HorizontalAlignment="Stretch"
+                             Grid.ColumnSpan="2"
+                             Items="{Binding Sections}" SelectedIndex="0">
+
+                    </ListBox>
+                    <Button Grid.Column="0" Grid.Row="1" Content="Load" Margin="4, 4, 2, 4" 
+                            HorizontalContentAlignment="Center"
+                            HorizontalAlignment="Stretch" 
+                            Command="{Binding LoadOptions}"
+                    />
+                    <Button Grid.Column="1" Grid.Row="1" Content="Save" Margin="2, 4, 4, 4" 
+                            HorizontalContentAlignment="Center"
+                            HorizontalAlignment="Stretch"
+                            Command="{Binding SaveOptions}"
+                    />
+                </Grid>
+
+                <opts:SettingsEditor 
+                    Grid.Row="0" Grid.Column="2"
+                    
+                    SelectedSection="{Binding #Sections.SelectedItem}"
+                    OptionsManager="{Binding OptionsManager}"
+                    VerticalAlignment="Stretch"
+                    HorizontalAlignment="Stretch"
+                    Name="SettingsEditor">
+                </opts:SettingsEditor>
+
+                <ItemsControl BorderThickness="0" 
+                              Items="{Binding Logging.Messages}"
+                              Background="Transparent"
+                              Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"
+                              Grid.IsSharedSizeScope="True"
+                              VerticalAlignment="Stretch"
+                              Margin="10">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="util:LogMessage">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition SharedSizeGroup="Time" />
+                                    <ColumnDefinition SharedSizeGroup="Category" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding Time}" />
+                                <TextBlock Grid.Column="1" Text="{Binding Category}" Margin="5, 0"/>
+                                <TextBlock Grid.Column="2" Text="{Binding Message}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical" VerticalAlignment="Top"></StackPanel>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+                <GridSplitter Grid.Row="0" Grid.Column="1"
+
+                              Grid.RowSpan="1" Width="2"/>
+                <GridSplitter Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"
+                              Height="2"/>
+
+            </Grid>
+        </ExperimentalAcrylicBorder>
+    </DockPanel>
+</Window>

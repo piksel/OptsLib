@@ -1,4 +1,4 @@
-﻿namespace LibSettings.Examples.SettingsEditor.WinForms
+﻿namespace OptsLib.Examples.SettingsEditor.WinForms
 {
     partial class ExampleMainForm
     {
@@ -57,7 +57,7 @@
             this.bSave.TabIndex = 2;
             this.bSave.Text = "Save";
             this.bSave.UseVisualStyleBackColor = true;
-            this.bSave.Click += new System.EventHandler(this.bSave_Click);
+            this.bSave.Click += new System.EventHandler(this.BSave_Click);
             // 
             // bLoad
             // 
@@ -163,7 +163,7 @@
             this.Controls.Add(this.scRoot);
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "ExampleMainForm";
-            this.Text = "Settings Editor WinForms Example";
+            this.Text = "Options Editor WinForms Example";
             this.Load += new System.EventHandler(this.ExampleMainForm_Load);
             this.scSettingsLog.Panel1.ResumeLayout(false);
             this.scSettingsLog.Panel2.ResumeLayout(false);
@@ -182,7 +182,7 @@
         #endregion
         private System.Windows.Forms.Button bSave;
         private System.Windows.Forms.Button bLoad;
-        private LibSettings.WinForms.SettingsEditorControl settingsEditorControl;
+        private OptsLib.WinForms.SettingsEditorControl settingsEditorControl;
         private System.Windows.Forms.TextBox tbConsole;
         private System.Windows.Forms.Panel pFile;
         private System.Windows.Forms.WebBrowser wbFile;

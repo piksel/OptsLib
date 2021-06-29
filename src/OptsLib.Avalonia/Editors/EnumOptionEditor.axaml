@@ -1,0 +1,31 @@
+﻿<editors:EnumOptionEditor xmlns="https://github.com/avaloniaui"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:converters="clr-namespace:OptsLib.Avalonia.Converters"
+                  xmlns:design="clr-namespace:OptsLib.Avalonia.Design"
+                  xmlns:editors="clr-namespace:OptsLib.Avalonia.Editors"
+                  mc:Ignorable="d" d:DesignWidth="400" 
+             
+                  d:DataContext="{x:Static design:DesignData.EnumData}"
+
+                  x:Class="OptsLib.Avalonia.Editors.EnumOptionEditor"
+                  Name="Editor"
+>
+    <Grid RowDefinitions="*,*" DataContext="{Binding #Editor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="NameCol" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="32" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="{Binding Meta.Name, FallbackValue='Name'}" 
+                   VerticalAlignment="Center"  Grid.Column="0" Margin="4,0,6,0" />
+
+        <ComboBox Grid.Row="0" Grid.Column="1" SelectedItem="{Binding Value}" 
+                  Items="{Binding Meta.ValueType, Converter={converters:EnumValuesConverter}}" />
+        <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center" Text="✔"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                   Margin="0, 5, 0, 0"
+                   Text="{Binding Meta.Description, FallbackValue=''}" />
+    </Grid>
+</editors:EnumOptionEditor>

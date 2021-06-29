@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ls="clr-namespace:LibSettings.WPF;assembly=LibSettings.WPF"
+        xmlns:ls="clr-namespace:OptsLib.WPF;assembly=OptsLib.WPF"
         xmlns:local="clr-namespace:SettingsEditor.WPF"
         mc:Ignorable="d"
-        Title="Settings Editor WPF Example" Height="553" Width="959">
+        Title="Options Editor WPF Example" Height="553" Width="959">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="500" />
@@ -17,12 +17,13 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <ls:SettingsEditor Name="settingsEditor" SettingsManager="{Binding SettingsManager}">
+        <ls:SettingsEditor Name="SettingsEditor" OptionsManager="{Binding OptionsManager}">
 
         </ls:SettingsEditor>
 
         <GridSplitter Grid.Column="0" Width="5"/>
-        <GridSplitter Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="5"/>
+        <GridSplitter Grid.Row="1" Grid.ColumnSpan="2" 
+                      VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="5"/>
 
     </Grid>
 </Window>

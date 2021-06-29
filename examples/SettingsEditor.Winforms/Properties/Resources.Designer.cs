@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LibSettings.Examples.SettingsEditor.WinForms.Properties {
+namespace OptsLib.Examples.SettingsEditor.WinForms.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LibSettings.Examples.SettingsEditor.WinForms.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LibSettings.Examples.SettingsEditor.WinForms.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OptsLib.Examples.SettingsEditor.WinForms.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

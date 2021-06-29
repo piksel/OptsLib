@@ -7,17 +7,16 @@ using Serilog;
 using Serilog.Core;
 using Serilog.Events;
 using Microsoft.Extensions.Logging;
-using Microsoft.Win32;
 using System.Threading.Tasks;
 
-namespace LibSettings.Examples.SettingsEditor.WinForms
+namespace OptsLib.Examples.SettingsEditor.WinForms
 {
     public partial class ExampleMainForm : Form, ILogEventSink
     {
-        private SettingsManager<AppSettings> settingsManager;
-        private ILoggerFactory loggerFactory;
+        private readonly OptionsManager<AppSettings> optionsManager;
+        private readonly ILoggerFactory loggerFactory;
 
-        private AppSettings Settings => settingsManager.Settings.Result;
+        private AppSettings Settings => optionsManager.Options.Result;
 
         public ExampleMainForm()
         {
@@ -32,20 +31,20 @@ namespace LibSettings.Examples.SettingsEditor.WinForms
 
             loggerFactory = LoggerFactory.Create(c => c.AddSerilog(Log.Logger));
 
-            SettingsLogger.Factory = loggerFactory;
+            OptionsLogger.Factory = loggerFactory;
 
-            settingsManager = SettingsManager
+            optionsManager = OptionsManager
                 .From<AppSettings>()
-                .WithJsonSerializer(r => r.UseSimpleAppSettings<ExampleMainForm>())
+                .WithJsonSerializer(r => r.UseSimpleAppOptions<ExampleMainForm>())
                 .Build();
 
             
 
-            settingsEditorControl ??= new LibSettings.WinForms.SettingsEditorControl();
+            settingsEditorControl ??= new OptsLib.WinForms.SettingsEditorControl();
 
             scSettingsLog.SuspendLayout();
             settingsEditorControl.Dock = DockStyle.Fill;
-            settingsEditorControl.SettingsManager = settingsManager;
+            settingsEditorControl.OptionsManager = optionsManager;
             settingsEditorControl.SettingsValueChanged += SettingsValueChanged;
             scSettingsLog.Panel1.Controls.Add(settingsEditorControl);
             wbFile.Dock = DockStyle.Fill;
@@ -56,7 +55,7 @@ namespace LibSettings.Examples.SettingsEditor.WinForms
             bLoad.Click += async (_, __) =>
             {
 
-                await settingsManager.Load();
+                await optionsManager.Load();
             };
         }
 
@@ -86,13 +85,13 @@ namespace LibSettings.Examples.SettingsEditor.WinForms
             var tempPath = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
             try
             {
-                var sm = SettingsManager
+                var sm = OptionsManager
                     .From<AppSettings>()
                     .WithJsonSerializer(r => r.UseFileSystem(tempPath), new System.Text.Json.JsonSerializerOptions()
                     {
                         WriteIndented = true,
                     })
-                    .WithInitial(await settingsManager.Settings)
+                    .WithInitial(await optionsManager.Options)
                     .Build();
 
                 await sm.Save();
@@ -121,7 +120,7 @@ namespace LibSettings.Examples.SettingsEditor.WinForms
 
         private async void ExampleMainForm_Load(object sender, System.EventArgs e)
         {
-            var settings = await settingsManager.Settings;
+            var settings = await optionsManager.Options;
             if (settings.Position.HasValue)
             {
                 Location = settings.Position.Value;
@@ -138,13 +137,13 @@ namespace LibSettings.Examples.SettingsEditor.WinForms
             }
         }
 
-        private async void bSave_Click(object sender, System.EventArgs e)
+        private async void BSave_Click(object sender, System.EventArgs e)
         {
             Settings.Position = Location;
             Settings.Size = new Point(Size);
             Settings.Title = Text;
 
-            await settingsManager.Save();
+            await optionsManager.Save();
         }
 
         public void Emit(LogEvent logEvent)

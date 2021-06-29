@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace LibSettings.Examples.SettingsEditor.WinForms {
+namespace OptsLib.Examples.SettingsEditor.WinForms {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace LibSettings.Examples.SettingsEditor.WinForms {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("LibSettings.Examples.SettingsEditor.WinForms.SyntaxHighlightResources", typeof(SyntaxHighlightResources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OptsLib.Examples.SettingsEditor.WinForms.SyntaxHighlightResources", typeof(SyntaxHighlightResources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -72,7 +72,7 @@ namespace LibSettings.Examples.SettingsEditor.WinForms {
         ///        margin: 0;
         ///        min-height: 100vh;
         ///        font-family: &quot;Fira Mono&quot;, &quot;Fira Code&quot;, Courier New, Courier, monospace;
-        ///        font-size: 10px;
+        ///        font-size: 12px;
         ///        box-sizing: border-box;
         ///    }}
         ///&lt;/style&gt;

@@ -1,4 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <Import Project="$(SolutionDir)/src/CommonProps.proj" />
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -7,18 +8,14 @@
   </PropertyGroup>
 
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-    <ProjectReference Include="..\..\src\LibSettings.Json\Core\LibSettings.Json.Core.csproj" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
-    <ProjectReference Include="..\..\src\LibSettings.Json\Legacy\LibSettings.Json.Legacy.csproj" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OptsLib.Json\Core\OptsLib.Serialization.Json.csproj" />
   </ItemGroup>
 
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\LibSettings.WPF\LibSettings.WPF.csproj" />
-    <ProjectReference Include="..\..\src\LibSettings\LibSettings.csproj" />
+    <ProjectReference Include="..\..\src\OptsLib.WPF\OptsLib.WPF.csproj" />
+    <ProjectReference Include="..\..\src\OptsLib\OptsLib.csproj" />
   </ItemGroup>
 
 </Project>

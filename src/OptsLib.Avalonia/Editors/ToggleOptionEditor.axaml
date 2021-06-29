@@ -1,0 +1,27 @@
+﻿<editors:ToggleOptionEditor xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                    xmlns:converters="clr-namespace:OptsLib.Avalonia.Converters"
+                    xmlns:editors="clr-namespace:OptsLib.Avalonia.Editors"
+                    mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+                    Name="Editor"
+                    x:Class="OptsLib.Avalonia.Editors.ToggleOptionEditor">
+    <Grid RowDefinitions="auto,auto" DataContext="{Binding #Editor}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" SharedSizeGroup="NameCol" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="32" />
+        </Grid.ColumnDefinitions>
+        <CheckBox Grid.ColumnSpan="2" 
+                  IsChecked="{Binding Value}" 
+                  IsThreeState="True">
+                  <!-- IsThreeState="{Binding #Editor.Value, Converter={converters:AutoBoolConverter}, ConverterParameter=true, Mode=OneWay}"> -->
+            <TextBlock Text="{Binding Meta.Name, FallbackValue=?}" />
+        </CheckBox>
+        <TextBlock Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" TextAlignment="Center" Text="✔" />
+        <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" 
+                   Text="{Binding Meta.Description, FallbackValue=''}" 
+                   IsVisible="{Binding Meta.HasDescription, FallbackValue=False}" />
+    </Grid>
+</editors:ToggleOptionEditor>

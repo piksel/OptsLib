@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="$(SolutionDir)/src/CommonProps.proj" />
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>9</LangVersion>
+    <AssemblyName>AvaloniaOptsEditor</AssemblyName>
+    <RootNamespace>OptsLib.Examples.AvaloniaOptsEditor</RootNamespace>
+    <Product>OptsLib AvaloniaExample</Product>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="0.10.6" />
+    <PackageReference Include="Avalonia.Desktop" Version="0.10.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\OptsLib.Avalonia\OptsLib.Avalonia.csproj" />
+    <ProjectReference Include="..\..\src\OptsLib.Json\Core\OptsLib.Serialization.Json.csproj" />
+    <ProjectReference Include="..\..\src\OptsLib\OptsLib.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,53 @@
+﻿<editors:DecimalOptionEditor xmlns="https://github.com/avaloniaui"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:design="clr-namespace:OptsLib.Avalonia.Design"
+                     xmlns:editors="clr-namespace:OptsLib.Avalonia.Editors"
+                     mc:Ignorable="d" d:DesignWidth="400"
+                     d:DataContext="{x:Static design:DesignData.DecimalData}"
+                     x:Class="OptsLib.Avalonia.Editors.DecimalOptionEditor"
+                     Name="Editor"
+>
+    <Grid RowDefinitions="*,*" >
+        <Grid.DataContext>
+            <Binding Path="#Editor" />
+        </Grid.DataContext>
+        <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" SharedSizeGroup="NameCol" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="32" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Meta.Name, FallbackValue='Name'}"  
+                           VerticalAlignment="Center"
+                           Grid.Column="0" Margin="4,0,6,0" />
+
+                <Grid Grid.Row="0" Grid.Column="1" ColumnDefinitions="*, auto">
+                    <Slider Grid.Column="0" Value="{Binding Value}" 
+                            Minimum="{Binding Meta.ValueRange.Min, FallbackValue=0}"
+                            Maximum="{Binding Meta.ValueRange.Max, FallbackValue=999}"
+                            Margin="10, -10"
+                            VerticalAlignment="Center"
+                            ></Slider>
+                    <TextBox Grid.Column="1" Margin="0,0,4,0" 
+                             Name="ValueText"
+                             Text="{Binding StringValue}"
+                              >
+                        <!-- Text="{Binding StringValue}" -->
+                    </TextBox>
+                    
+                </Grid>
+                
+                <TextBlock Grid.Row="0" Grid.Column="2"
+                           Classes.Modified="{Binding ValueModified}"
+                           Classes.HasError="{Binding ValueHasError}"
+                           VerticalAlignment="Center" TextAlignment="Center" Text=""
+                           Name="StateIndicator"
+                />
+                <!--
+                -->
+                <TextBlock Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                           Margin="0, 5, 0, 0"
+                           Text="{Binding Description}" />
+            </Grid>
+</editors:DecimalOptionEditor>

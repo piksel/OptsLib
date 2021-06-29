@@ -2,6 +2,10 @@
 
 Simple application configuration and UI library.
 
+[![](https://img.shields.io/nuget/v/OptsLib?label=OptsLib)](https://www.nuget.org/packages/OptsLib/)
+[![](https://img.shields.io/nuget/v/OptsLib.Avalonia?label=OptsLib.Avalonia)](https://www.nuget.org/packages/OptsLib.Avalonia/)
+[![](https://img.shields.io/nuget/v/OptsLib.WinForms?label=OptsLib.WinForms)](https://www.nuget.org/packages/OptsLib.WinForms/)
+
 ## Examples
 
 Application configuration class with OptsLib Attributes:

@@ -1,8 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <Import Project="../../CommonProps.proj" />
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
-    <RootNamespace>OptsLib.Serialization.Json.Legacy</RootNamespace>
+    <RootNamespace>OptsLib.Serialization.Json</RootNamespace>
     <Description>LibSettings JSON serializer (for .NET Framework, uses Newtonsoft.Json)</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

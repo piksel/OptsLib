@@ -6,7 +6,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace OptsLib.Serialization.Json.Legacy
+namespace OptsLib.Serialization.Json
 {
     public class JsonSettingsSerializer<TOptions>: ISettingsSerializer<TOptions> where TOptions: class, IOptions
     {

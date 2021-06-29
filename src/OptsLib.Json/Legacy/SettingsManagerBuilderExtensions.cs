@@ -1,11 +1,11 @@
 ﻿using OptsLib.Builders;
 using System;
 using OptsLib.StoreResolvers;
-using OptsLib.Serialization.Json.Legacy;
+using OptsLib.Serialization.Json;
 
 namespace OptsLib
 {
-    public static class OptionsManagerBuilderJsonLegacyExtensions
+    public static class OptionsManagerBuilderJsonJsonNewtonsoftExtensions
     {
         public static IOptionsManagerBuilder<TOptions> WithJsonSerializer<TOptions>(this ISettingsManagerBuilderProto<TOptions> _, Func<IStoreResolverBuilder, IStoreResolver> storeResolver) 
             where TOptions: class, IOptions, new()

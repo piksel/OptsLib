@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptsLib", "src\OptsLib\Opts
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptsLib.Serialization.Json", "src\OptsLib.Json\Core\OptsLib.Serialization.Json.csproj", "{204A1A44-651B-40F1-82D5-18EC598F68BD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptsLib.Json.Legacy", "src\OptsLib.Json\Legacy\OptsLib.Json.Legacy.csproj", "{204A1A44-651B-40F1-82D5-18EC598F68BE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OptsLib.Serialization.Json-Newtonsoft", "src\OptsLib.Json\Legacy\OptsLib.Serialization.Json-Newtonsoft.csproj", "{204A1A44-651B-40F1-82D5-18EC598F68BE}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OptsLib.Json", "OptsLib.Json", "{B88F9C02-2326-43F5-BDC4-9A17A4D6F19E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OptsLib.Serialization", "OptsLib.Serialization", "{B88F9C02-2326-43F5-BDC4-9A17A4D6F19E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsEditor.WinForms.Core", "examples\SettingsEditor.Winforms\SettingsEditor.WinForms.Core.csproj", "{D3DE954A-92B4-4B42-8AEB-F65104522AE4}"
 EndProject
@@ -36,7 +36,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingsEditor.WPF", "examp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OptsLib.Avalonia", "src\OptsLib.Avalonia\OptsLib.Avalonia.csproj", "{EC16A7C2-73A4-44C7-8D99-4F118FE922F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingsEditor.Avalonia", "examples\SettingsEditor.Avalonia\SettingsEditor.Avalonia.csproj", "{5DBA215B-3EC7-4CA2-B8CE-12D20D7BB214}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaloniaOptsEditor", "examples\AvaloniaOptsEditor\AvaloniaOptsEditor.csproj", "{5DBA215B-3EC7-4CA2-B8CE-12D20D7BB214}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

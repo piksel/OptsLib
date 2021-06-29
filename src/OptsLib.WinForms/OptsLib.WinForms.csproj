@@ -1,4 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <SolutionDir Condition="'$(SolutionDir)' == ''">../..</SolutionDir>
+  </PropertyGroup>
   <Import Project="$(SolutionDir)/src/CommonProps.proj" />
   <PropertyGroup>
     <OutputType>Library</OutputType>
@@ -15,9 +18,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="OptsLib.SettingsEditorControl.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="tools\VisualStudioToolsManifest.xml" Pack="true" PackagePath="tools\VisualStudioToolsManifest.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AssemblyInfo.cs" />

@@ -3,6 +3,7 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="examples/AvaloniaOptsEditor/MainWindow.axaml" value="examples/AvaloniaOptsEditor/AvaloniaOptsEditor.csproj" />
         <entry key="examples/SettingsEditor.Avalonia/App.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
         <entry key="examples/SettingsEditor.Avalonia/MainWindow.axaml" value="examples/SettingsEditor.Avalonia/SettingsEditor.Avalonia.csproj" />
         <entry key="examples/SettingsEditor.WPF/App.xaml" value="examples/SettingsEditor.WPF/SettingsEditor.WPF.csproj" />
